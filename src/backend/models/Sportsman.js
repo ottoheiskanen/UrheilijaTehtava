@@ -30,6 +30,18 @@ class Sportsman {
         return db.execute(sql)
     }
 
+    static async updateById(id, first_name, nickname, last_name, image_url, birth_year, weight, sport, records) {
+        let sql = `UPDATE sportsmen SET first_name='${first_name}', nickname='${nickname}', last_name='${last_name}', 
+        image_url='${image_url}', birth_year='${birth_year}', weight='${weight}', sport='${sport}', records='${records}' WHERE id='${id}';`;
+
+        const [updatedSportman, _] = await db.execute(sql)
+        return updatedSportman
+    }
+
+    static async deleteById(id) {
+        let sql =  `DELETE FROM sportsmen WHERE id = '${id}';`
+        return await db.execute(sql)
+    }
 }
 
 module.exports = Sportsman

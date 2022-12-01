@@ -37,3 +37,30 @@ exports.addNewSportsman = async(req, res, next) => {
         next(error)
     }
 } 
+
+// Update sportsman
+exports.updateSportsmanById = async(req, res, next) => {
+    try {
+        let sportsmanId = Number(req.params.id)
+        let {first_name, nickname, last_name, image_url, birth_year, weight, sport, records} = req.body
+        let [sportsman, _] = await Sportsman.findById(sportsmanId)
+        console.log(sportsman)
+        sportsman = await Sportsman.updateById(sportsmanId, first_name, nickname, last_name, image_url, birth_year, weight, sport, records)
+        res.status(204).json({message: "Sportsman updated!"})          
+    } catch (error) {
+        console.log(error)
+        next(error)
+    }
+}
+
+exports.deleteSportsmanById = async(req, res, next) => {
+    try {
+        let sportsmanId = Number(req.params.id)
+        let [sportsman, _] = await Sportsman.findById(sportsmanId)
+        sportsman = await Sportsman.deleteById(sportsmanId)
+        res.status(200).json({message: "Post deleted"})
+    } catch (error) {
+        console.log(error)
+        next(error)
+    }
+}

@@ -11,7 +11,7 @@ router
 router
 .route("/:id")
 .get(sportsmanControllers.findSportsmanById)
-// .put(sportsmanControllers.updateSportsmanById)
-// .delete(sportsmanControllers.deleteSportsmanById)
+.put(sportsmanControllers.updateSportsmanById)
+.delete(sportsmanControllers.deleteSportsmanById)
 
 module.exports = router
