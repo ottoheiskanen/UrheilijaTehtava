@@ -28,33 +28,99 @@
   color: #61dafb;
 }
 
-.add-sportsman {
+.main {
+  /* background: #556A95; */
+  background-image: linear-gradient(#45a29e, #1f2833, #0b0c10);
+  width: auto;
+}
+.main-header {
+  background-color: #0b0c10;
+  padding: 30px;
+}
+
+.main-header > ul {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.main-header > ul > li {
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.postrow {
+  text-align: "left";
+}
+
+.headerlink-title {
+  color: #66fcf1;
+  text-decoration: none;
+  padding: 0 5px;
+}
+
+.child-div {
+  width: auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  vertical-align: top;
+  justify-content: center;
+}
+
+.child-div table {
+  /* background-color: #8892a5; */
+  background-color: #c5c6c7;
+  border: none;
+}
+
+.form-box {
+  width: 375px;
   display:block;
   margin: auto;
-  font-size: 16px;
 }
 
-.add-sportsman label {
-  color: black;
-  width: 20px;
-  height: 80px;
-}
-
-.add-sportsman input {
+.form-box label {
+  width: 200px;
   text-align: center;
 }
 
-.add-sportsman textarea {
+.form-box input {
+  width: 200px;
+  text-align: center;
+}
+
+.form-box textarea {
   width: 200px;
   height: 100px;
   resize: none;
   overflow-y: scroll;
 }
 
-.add-sportsman button {
-  width: 140px; 
+.form-box button {
+  width: 208px; 
   height: 30px;
+}
 
+.add-sportsman {
+  width: 375px;
+  height: 100vh;
+  margin: 0vw;
+  padding: 2vw;
+  position: relative;
+  margin: auto;
+  font-size: 16px;
+}
+
+.add-sportsman h2 {
+  text-align: center;
+  font-size: 28px;
+  text-indent: -168px;
 }
 
 @keyframes App-logo-spin {

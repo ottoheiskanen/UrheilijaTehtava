@@ -26,7 +26,8 @@ const AddForm = () => {
             records: data.records
         })
         .then(res=> {
-            console.log(res.data)
+            //console.log(res.data)
+            alert("Uusi urheilija lisätty tietokantaan!")
         })
     }
 
@@ -34,13 +35,13 @@ const AddForm = () => {
         const newData={...data}
         newData[e.target.id] = e.target.value
         setData(newData)
-        console.log(newData)
+        //console.log(newData)
     }
 
     return (
         <div className="add-sportsman">
             <h2>Lisää uusi urheilija</h2>
-            <form onSubmit={(e)=>submit(e)} method="POST">
+            <form onSubmit={(e)=>submit(e)} method="POST" className="form-box">
                 <label>Etunimi:</label><br></br>
                 <input
                     onChange={(e) =>handle(e)}
@@ -89,8 +90,9 @@ const AddForm = () => {
                     id="birth_year"
                     name="birth_year"
                     step="1" 
-                    pattern="\d+" 
-                    /*required*/
+                    pattern="\d+"
+                    maxLength="4" 
+                    required
                 /><br></br>
                 <label>Paino:</label><br></br>
                 <input
@@ -100,8 +102,9 @@ const AddForm = () => {
                     id="weight"
                     name="weight"
                     step="1" 
-                    pattern="\d+" 
-                    /*required*/
+                    pattern="\d+"
+                    maxLength="3" 
+                    required
                 /><br></br>
                 <label>Urheilulaji:</label><br></br>
                 <input
@@ -111,7 +114,7 @@ const AddForm = () => {
                     id="sport"
                     name="sport"
                     required
-                    maxlength="40"
+                    maxLength="40"
                 /><br></br>
                 <label>Saavutukset:</label><br></br>
                 <textarea 
