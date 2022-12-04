@@ -53,6 +53,7 @@ exports.updateSportsmanById = async(req, res, next) => {
     }
 }
 
+// Delete sportsman
 exports.deleteSportsmanById = async(req, res, next) => {
     try {
         let sportsmanId = Number(req.params.id)
