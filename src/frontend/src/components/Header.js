@@ -11,6 +11,9 @@ export default function Header() {
             <li>
                 <Link to="/add" className="headerlink-title">Lisää urheilija</Link>
             </li>
+            <li>
+                <Link to="/update" className="headerlink-title">Muokkaa urheilijaa</Link>
+            </li>
         </ul>
     </div>
   )

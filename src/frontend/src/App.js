@@ -2,6 +2,7 @@ import './App.css';
 import AddForm from './components/AddForm.js';
 import Header from './components/Header.js';
 import Posts from './components/Posts.js';
+import UpdateForm from './components/UpdateForm.js';
 import {Routes, Route} from 'react-router-dom'
 
 function App() {
@@ -30,6 +31,15 @@ function App() {
               </>
             }
           />
+          <Route
+            path="/update"
+            element={
+              <>
+              <Header />
+              <UpdateForm />
+              </>
+            }
+            />
         </Routes>
       </div>
     </>

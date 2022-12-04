@@ -67,7 +67,7 @@
   width: auto;
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items:flex-start;
   text-align: center;
   vertical-align: top;
   justify-content: center;
@@ -121,6 +121,18 @@
   text-align: center;
   font-size: 28px;
   text-indent: -168px;
+}
+
+.update-btn {
+  background-color: rgb(54, 98, 148);
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: rgb(224, 24, 24);
+  border: none;
+  cursor: pointer;
 }
 
 @keyframes App-logo-spin {

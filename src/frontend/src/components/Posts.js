@@ -25,6 +25,15 @@ export default function Posts() {
     fetchData();
     //console.log(data);
   }, []);
+
+  const updateData = () => {
+    console.log("test")
+  }
+
+  const deleteData = () => {
+    console.log("test2")
+  }
+
   return (
     <div className="child-div">
       {!loading && (
@@ -56,22 +65,24 @@ export default function Posts() {
             <tbody>
               {data.map((item) => (
                 <tr key={item.id}>
-                  <td align="left">{item.first_name} </td>
+                    <td align="left"><input value={item.first_name}/> </td>
 
-                  <td align="left">{item.nickname}</td>
+                    <td align="left"><input value={item.nickname}/></td>
 
-                  <td align="left">{item.last_name}</td>
+                    <td align="left">{item.last_name}</td>
 
-                  <td align="left"><a href={item.image_url}>Linkki kuvaan</a> </td>
+                    <td align="left"><a href={item.image_url}>Linkki kuvaan</a> </td>
 
-                  <td align="left">{item.birth_year}</td>
+                    <td align="left">{item.birth_year}</td>
 
-                  <td align="left">{item.weight}</td>
+                    <td align="left">{item.weight}</td>
 
-                  <td align="left">{item.sport}</td>
+                    <td align="left">{item.sport}</td>
 
-                  <td align="left">{item.records}</td>
-
+                    <td align="left">{item.records}</td>
+                
+                    <td><button className="update-btn" onSubmit={updateData(item.id)}> Päivitä </button></td>  
+                    <td><button className="delete-btn" onSubmit={deleteData(item.id)}> Poista </button></td>
                 </tr>
               ))}
             </tbody>
