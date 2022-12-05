@@ -65,9 +65,9 @@ export default function Posts() {
             <tbody>
               {data.map((item) => (
                 <tr key={item.id}>
-                    <td align="left"><input value={item.first_name}/> </td>
+                    <td align="left"><input defaultValue={item.first_name}/> </td>
 
-                    <td align="left"><input value={item.nickname}/></td>
+                    <td align="left"><input defaultValue={item.nickname}/></td> 
 
                     <td align="left">{item.last_name}</td>
 

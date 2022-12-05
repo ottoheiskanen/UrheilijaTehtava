@@ -28,8 +28,8 @@
   color: #61dafb;
 }
 
+/*
 .main {
-  /* background: #556A95; */
   background-image: linear-gradient(#45a29e, #1f2833, #0b0c10);
   width: auto;
 }
@@ -74,7 +74,6 @@
 }
 
 .child-div table {
-  /* background-color: #8892a5; */
   background-color: #c5c6c7;
   border: none;
 }
@@ -133,6 +132,49 @@
   background-color: rgb(224, 24, 24);
   border: none;
   cursor: pointer;
+}
+*/
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px;
+  font-size: 12px;
+}
+
+th {
+  background-color: rgb(117, 201, 250);
+}
+
+td {
+  background-color: rgb(205, 235, 253);
+}
+
+form {
+  display: flex;
+  gap: 5px;
+}
+
+form td:last-child {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+form * {
+  font-size: 12px;
 }
 
 @keyframes App-logo-spin {
