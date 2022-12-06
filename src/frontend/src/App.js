@@ -1,15 +1,8 @@
 import './App.css';
-import AddForm from './components/AddForm.js';
-import Header from './components/Header.js';
-import Posts from './components/Posts.js';
-import UpdateForm from './components/UpdateForm.js';
-import {Routes, Route} from 'react-router-dom'
-
 import ReadOnlyRow from "./components/ReadOnlyRow";
 import EditableRow from "./components/EditableRow";
 import React, { useState, Fragment, useEffect } from "react";
 import {nanoid} from 'nanoid'
-//import data from './mock-data.json'
 import axios from "axios"
 
 function App() {
@@ -28,7 +21,7 @@ function App() {
           .then((res) => {
             setData(res.data.sportsmen);
             console.log(res.data.sportsmen);
-            setSportsmen(res.data.sportsmen) // toimii liiankin hyvin???
+            setSportsmen(res.data.sportsmen)
           })
           .catch((err) => console.log(err));
       } catch (error) {
@@ -37,11 +30,8 @@ function App() {
       setLoading(false);
     };
     fetchData();
-    //console.log(data);
   }, []);
 
- //Working code starts here
-  //const [sportsmen, setSportsmen] = useState(data)
   const [addFormData, setAddFormData] = useState({
     first_name: "",
     nickname: "",
@@ -110,7 +100,6 @@ function App() {
 
     axios.post(url, newSportsman) //AUTO_INC will overwrite the id attribute so we can re-use 'newSportsman' model here
     .then(res=> {
-      //console.log(res.data)
       alert("Uusi urheilija lisätty tietokantaan!")
       window.location.reload(false)
     })
@@ -138,7 +127,7 @@ function App() {
     setEditSportsmanId(null)
 
     let realId = sportsmen[index].id
-    axios.put(url + "/" + realId, editedSportsman) //AUTO_INC will autocorrect the 'id' field on database
+    axios.put(url + "/" + realId, editedSportsman) //AUTO_INC will overwrite the 'id' field on database
     .then(res=> {
       alert("Urheilijan tiedot on päivitetty!")
     })
@@ -171,9 +160,11 @@ function App() {
     const newSportsmen = [...sportsmen]
 
     const index = sportsmen.findIndex((sportsman) => sportsman.id === sportsmanId)
-
-    newSportsmen.splice(index, 1) // Call delete request here
+    newSportsmen.splice(index, 1)
     setSportsmen(newSportsmen)
+    let realId = sportsmen[index].id
+    axios.delete(url + "/" + realId)
+    .then(() => alert("Urheilija poistettu onnistuneesti!"))
   }
 
   return (
@@ -234,7 +225,7 @@ function App() {
           type="text"
           name="last_name"
           required="required"
-          placeholder="Sukunimi"            //Continue changes here...
+          placeholder="Sukunimi"            
           onChange={handleAddFormChange}
         />
         <input
@@ -276,42 +267,6 @@ function App() {
       </form>
     </div>
   );
-
-  /*return (
-    <>
-      <div className="main">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
-                <Posts />
-              </>
-            }
-          />
-          <Route
-            path="/add"
-            element={
-              <>
-                <Header />
-                <AddForm />
-              </>
-            }
-          />
-          <Route
-            path="/update"
-            element={
-              <>
-              <Header />
-              <UpdateForm />
-              </>
-            }
-            />
-        </Routes>
-      </div>
-    </>
-  );*/
 }
 
 export default App;
