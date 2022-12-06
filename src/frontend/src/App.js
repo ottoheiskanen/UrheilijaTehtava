@@ -7,12 +7,41 @@ import {Routes, Route} from 'react-router-dom'
 
 import ReadOnlyRow from "./components/ReadOnlyRow";
 import EditableRow from "./components/EditableRow";
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import {nanoid} from 'nanoid'
-import data from './mock-data.json'
+//import data from './mock-data.json'
+import axios from "axios"
 
 function App() {
+  const url = "http://localhost:3001/posts"
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
   const [sportsmen, setSportsmen] = useState(data)
+
+  useEffect(() => {
+    const fetchData = () => {
+      setLoading(true);
+      try {
+        axios
+          .get(url)
+          .then((res) => {
+            setData(res.data.sportsmen);
+            console.log(res.data.sportsmen);
+            setSportsmen(res.data.sportsmen) // toimii liiankin hyvin???
+          })
+          .catch((err) => console.log(err));
+      } catch (error) {
+        console.error(error.message);
+      }
+      setLoading(false);
+    };
+    fetchData();
+    //console.log(data);
+  }, []);
+
+ //Working code starts here
+  //const [sportsmen, setSportsmen] = useState(data)
   const [addFormData, setAddFormData] = useState({
     first_name: "",
     nickname: "",
@@ -78,6 +107,13 @@ function App() {
 
     const newSportsmen = [...sportsmen, newSportsman]
     setSportsmen(newSportsmen)
+
+    axios.post(url, newSportsman) //AUTO_INC will overwrite the id attribute so we can re-use 'newSportsman' model here
+    .then(res=> {
+      //console.log(res.data)
+      alert("Uusi urheilija lisätty tietokantaan!")
+      window.location.reload(false)
+    })
   }
 
   const handleEditFormSubmit = (event) => {
@@ -96,13 +132,16 @@ function App() {
     }
 
     const newSportsmen = [...sportsmen]
-
     const index = sportsmen.findIndex((sportsman) => sportsman.id === editSportsmanId)
-
     newSportsmen[index] = editedSportsman
-
     setSportsmen(newSportsmen)
     setEditSportsmanId(null)
+
+    let realId = sportsmen[index].id
+    axios.put(url + "/" + realId, editedSportsman) //AUTO_INC will autocorrect the 'id' field on database
+    .then(res=> {
+      alert("Urheilijan tiedot on päivitetty!")
+    })
   }
 
   const handleEditClick = (event, sportsman) => {

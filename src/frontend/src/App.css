@@ -135,6 +135,14 @@
 }
 */
 
+body {
+  height: 100%;
+  background-image: linear-gradient(#45a29e, #1f2833, #0b0c10);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
@@ -160,7 +168,7 @@ th {
 }
 
 td {
-  background-color: rgb(205, 235, 253);
+  background-color: #c6ddf8;
 }
 
 form {
