@@ -1,6 +1,7 @@
 import './App.css';
 import ReadOnlyRow from "./components/ReadOnlyRow";
 import EditableRow from "./components/EditableRow";
+import Title from "./components/Title"
 import React, { useState, Fragment, useEffect } from "react";
 import {nanoid} from 'nanoid'
 import axios from "axios"
@@ -20,7 +21,7 @@ function App() {
           .get(url)
           .then((res) => {
             setData(res.data.sportsmen);
-            console.log(res.data.sportsmen);
+            //console.log(res.data.sportsmen);
             setSportsmen(res.data.sportsmen)
           })
           .catch((err) => console.log(err));
@@ -64,7 +65,6 @@ function App() {
 
     const newFormData = { ...addFormData}
     newFormData[fieldName] = fieldValue
-    console.log(fieldName + " : "+ fieldValue)
     setAddFormData(newFormData)
   }
 
@@ -169,6 +169,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <Title/>
       <form onSubmit={handleEditFormSubmit}>
         <table>
           <thead>
@@ -212,6 +213,7 @@ function App() {
           name="first_name"
           required="required"
           placeholder="Etunimi"
+          maxLength={20}
           onChange={handleAddFormChange}
         />
         <input
@@ -219,13 +221,15 @@ function App() {
           name="nickname"
           required="required"
           placeholder="Kutsumanimi"
+          maxLength={20}
           onChange={handleAddFormChange}
         />
         <input
           type="text"
           name="last_name"
           required="required"
-          placeholder="Sukunimi"            
+          placeholder="Sukunimi"        
+          maxLength={40}    
           onChange={handleAddFormChange}
         />
         <input
@@ -233,6 +237,7 @@ function App() {
           name="image_url"
           required="required"
           placeholder="Kuvan url"
+          maxLength={100}
           onChange={handleAddFormChange}
         />
         <input
@@ -240,6 +245,8 @@ function App() {
           name="birth_year"
           required="required"
           placeholder="Syntymävuosi"
+          min={0}
+          max={2022}
           onChange={handleAddFormChange}
         />
         <input
@@ -247,6 +254,8 @@ function App() {
           name="weight"
           required="required"
           placeholder="Paino"
+          min={1}
+          max={999}
           onChange={handleAddFormChange}
         />
         <input
@@ -254,6 +263,7 @@ function App() {
           name="sport"
           required="required"
           placeholder="Urheilulaji"
+          maxLength={40}
           onChange={handleAddFormChange}
         />
         <input
@@ -261,6 +271,7 @@ function App() {
           name="records"
           required="required"
           placeholder="Ennätykset"
+          maxLength={100}
           onChange={handleAddFormChange}
         />
         <button type="submit">Lisää</button>

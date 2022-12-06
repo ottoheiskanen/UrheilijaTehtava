@@ -28,112 +28,16 @@
   color: #61dafb;
 }
 
-/*
-.main {
-  background-image: linear-gradient(#45a29e, #1f2833, #0b0c10);
-  width: auto;
-}
-.main-header {
-  background-color: #0b0c10;
-  padding: 30px;
-}
-
-.main-header > ul {
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-  margin: 0 auto;
-}
-
-.main-header > ul > li {
-  outline: none;
-  text-decoration: none;
-  list-style: none;
-  font-size: 25px;
-  cursor: pointer;
-}
-
-.postrow {
-  text-align: "left";
-}
-
-.headerlink-title {
-  color: #66fcf1;
-  text-decoration: none;
-  padding: 0 5px;
-}
-
-.child-div {
-  width: auto;
-  height: 100vh;
-  display: flex;
-  align-items:flex-start;
+h1 {
+  font-size: 40px;
   text-align: center;
-  vertical-align: top;
-  justify-content: center;
+  text-decoration: underline;
+  color: aliceblue;
 }
 
-.child-div table {
-  background-color: #c5c6c7;
-  border: none;
+h2 {
+  color:aliceblue;
 }
-
-.form-box {
-  width: 375px;
-  display:block;
-  margin: auto;
-}
-
-.form-box label {
-  width: 200px;
-  text-align: center;
-}
-
-.form-box input {
-  width: 200px;
-  text-align: center;
-}
-
-.form-box textarea {
-  width: 200px;
-  height: 100px;
-  resize: none;
-  overflow-y: scroll;
-}
-
-.form-box button {
-  width: 208px; 
-  height: 30px;
-}
-
-.add-sportsman {
-  width: 375px;
-  height: 100vh;
-  margin: 0vw;
-  padding: 2vw;
-  position: relative;
-  margin: auto;
-  font-size: 16px;
-}
-
-.add-sportsman h2 {
-  text-align: center;
-  font-size: 28px;
-  text-indent: -168px;
-}
-
-.update-btn {
-  background-color: rgb(54, 98, 148);
-  border: none;
-  cursor: pointer;
-}
-
-.delete-btn {
-  background-color: rgb(224, 24, 24);
-  border: none;
-  cursor: pointer;
-}
-*/
 
 body {
   height: 100%;

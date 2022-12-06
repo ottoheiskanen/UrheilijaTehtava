@@ -6,7 +6,6 @@ const cors = require('cors')
 app.use(express.json())
 app.use(cors())
 
-// Redirect requests to endpoint starting with /posts
 app.use("/posts", require("./routes/sportsmanRoutes.js"))
 
 app.use((err, req, res, next) => {
